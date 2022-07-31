@@ -2,6 +2,7 @@ import React from 'react'
 import TypeWriter from '../components/TypeWriter'
 import styled from 'styled-components'
 import {useNavigate} from 'react-router-dom'
+import BackButton from '../components/BackButton'
 
 function ForgotPassword() {
     const navigate = useNavigate()
@@ -11,6 +12,7 @@ function ForgotPassword() {
     }
   return (
     <Main>
+        <BackButton/>
         <div className="top">
         <TypeWriter text={'OOPS We are sorry you forgot your password'}/>
         <p style={{textAlign:'center' , fontSize:'20px'}}>Let us assist you in getting it back 😇</p>
