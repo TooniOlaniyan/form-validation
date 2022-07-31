@@ -39,14 +39,8 @@ const Arrow = styled.div`
    }
  
   }
-  @media screen and (min-width:896px) {
-    left: 0;
-    top: 0.3rem;
-    width: 10rem;
-    font-size: 16px;
-    .leftArrow{
-      width: 40px;
-    }
+  @media screen and (max-width:850px) {
+   display: none;
     
   
    }

@@ -56,8 +56,8 @@ const Main = styled.main`
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  @media screen and (max-width:500px) {
-    
+  @media screen and (max-width:820px) {
+    padding: 1rem 0;
   }
 `
 
