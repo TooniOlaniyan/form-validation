@@ -25,5 +25,10 @@ const Writer = styled.div`
     justify-content: center;
     align-items: center;
     font-size: 40px;
+    @media screen and (max-width:420px) {
+      font-size: 30px;
+      width: 90vw;
+      
+    }
 `
 export default TypeWriter

@@ -15,7 +15,7 @@ function ForgotPassword() {
         <BackButton/>
         <div className="top">
         <TypeWriter text={'OOPS We are sorry you forgot your password'}/>
-        <p style={{textAlign:'center' , fontSize:'20px'}}>Let us assist you in getting it back 😇</p>
+        <p style={{textAlign:'center' , fontSize:'20px' }}>Let us assist you in getting it back 😇</p>
         </div>
         <div className="restPassword">
             <Form onSubmit={handleSubmit}>
@@ -42,6 +42,10 @@ const Main = styled.div`
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+    @media screen and (max-width: 420px) {
+     gap: 1rem;
+     
+    }
    }
 
 `
@@ -53,10 +57,9 @@ width: 35rem;
 height: 3rem;
 font-size: 20px;
 border-color: #2c3333e2;
-    &::placeholder{
-      text-align: left;
-       
-    }
+@media screen and (max-width: 420px) {
+    width: 90vw;
+  }
   
 `
 const Google = styled.div`
@@ -72,6 +75,9 @@ const Google = styled.div`
     color: white;
     cursor: pointer;
     transition: all 1s;
+    @media screen and (max-width: 420px) {
+    padding: 0.7rem 4rem;
+  }
 
   }
 
