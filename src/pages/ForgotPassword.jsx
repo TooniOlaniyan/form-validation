@@ -47,6 +47,10 @@ const Main = styled.div`
      
     }
    }
+   @media screen and (max-width: 420px) {
+     gap: 2rem;
+     
+    }
 
 `
 
