@@ -42,6 +42,9 @@ function SignIn() {
         </Reset>
         <Google>
               <button> <FaGoogle/> Sign In with Google</button>
+           <div className="tryRegister">
+           New? <Link to='/register' className='forgotPassword'>Register</Link>
+           </div>
             </Google>
       </Form>
     </Main>
@@ -151,6 +154,11 @@ const Google = styled.div`
   button:hover{
     background-color: white;
     color: #000;
+  }
+  .tryRegister{
+   margin-top: 1rem;
+   font-size: 20px;
+   color: #000000bf;
   }
 
 `
