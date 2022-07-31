@@ -34,7 +34,7 @@ function SignIn() {
           
         </Input>
         <button > <FaSignOutAlt/> Sign In</button>
-        <Reset className="passwordReset">
+        <Reset>
         <Link className='forgotPassword' to='/forgot-password'>
         Forgot password?
         </Link>
@@ -84,10 +84,26 @@ const Reset = styled.div`
   justify-content: flex-end;
   align-items: flex-end;
   width: 60%;
+  .forgotPassword{
+  text-decoration: none;
+  text-align: right;
+  color: black;
+  font-size: 18px;
+  font-weight: 700;
+  @media screen and (max-width:900px) {
+    text-align: center;
+    margin-right: 3rem; 
+  }
+  @media screen and (max-width:400px) {
+    text-align: left;
+    font-size: 16px;
+  }
+ }
   @media screen and (max-width:420px) {
     width: max-content;
     
   }
+
 `
 const Label = styled.label`
   font-size: 20px;
@@ -138,7 +154,7 @@ const Form = styled.form`
   background-color: #000;
   color: #fff;
  }
- .forgotPassword{
+ .register{
   text-decoration: none;
   text-align: right;
   color: black;
@@ -160,9 +176,9 @@ width: 30rem;
 height: 3rem;
 font-size: 20px;
 border-color: #2c3333e2;
-@media screen and (max-width:420px) {
+@media screen and (max-width:400px) {
   width: 20rem;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
   
 `
@@ -185,6 +201,10 @@ const Input = styled.div`
   
   @media screen and (max-width:900px) {
     top: 45px;
+  }
+  @media screen and (max-width:400px) {
+    right: -20px;
+
   }
 }
   
