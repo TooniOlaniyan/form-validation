@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BiShowAlt} from 'react-icons/bi'
+import { BiShowAlt , BiHide} from 'react-icons/bi'
 import { FaSignOutAlt , FaGoogle} from 'react-icons/fa'
 import {useNavigate} from 'react-router-dom'
 import {Link} from 'react-router-dom'
@@ -25,14 +25,21 @@ function SignIn() {
       <Form  onSubmit={handleSubmit}>
         <Input>
           <Label htmlFor="name">Name</Label>
-          <Field type="text" id='name' />
+          <Field type="text" id='name' placeholder='Enter Your Name' />
         </Input>
         <Input>
           <Label htmlFor="name">Password</Label>
-          <Field type= {hide ? 'password' : 'text'} id='name'  />
-          <BiShowAlt size={25} onClick={()=>setHide(!hide)} className='passwordReveal'/>
+          <Field type= {hide ? 'password' : 'text'} id='name' placeholder='Enter Your Password' />
+          {hide ? <BiShowAlt size={25} onClick={()=>setHide(!hide)} className='passwordReveal'/> : <BiHide size={25} onClick={()=>setHide(!hide)} className='passwordReveal'/>}
+          
         </Input>
         <button > <FaSignOutAlt/> Sign In</button>
+        <Reset className="passwordReset">
+        <Link className='forgotPassword' to='/forgot-password'>
+        Forgot password?
+        
+        </Link>
+        </Reset>
         <Google>
               <button> <FaGoogle/> Sign In with Google</button>
             </Google>
@@ -55,6 +62,12 @@ const Image = styled.div`
     width: 45rem;
     height: 45rem;
   }
+`
+const Reset = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 60%;
 `
 const Label = styled.label`
   font-size: 20px;
@@ -85,11 +98,20 @@ const Form = styled.form`
   background-color: #000;
   color: #fff;
  }
+ .forgotPassword{
+  text-decoration: none;
+  text-align: right;
+  color: black;
+  font-size: 18px;
+  font-weight: 700;
+ }
 
 `
 const Field = styled.input`
 border-radius: 1rem;
-padding: 0.7rem 8rem;
+padding: 0.7rem;
+width: 30rem;
+height: 3rem;
 font-size: 20px;
 border-color: #2c3333e2;
     &::placeholder{

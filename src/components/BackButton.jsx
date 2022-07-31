@@ -21,7 +21,7 @@ const Arrow = styled.div`
    justify-content: center;
    align-items: center;
    position: absolute;
-   top: 2rem;
+   top: 3rem;
    left: 10rem;
    gap: 1rem;
    padding: 1rem 3rem;

@@ -11,7 +11,7 @@ function Home() {
   return (
     <>
     <Main>
-        <TypeWriter/>
+        <TypeWriter text={'Welcome On Board'}/>
 
         <Link to='/sign-in'>
         <SignIn>

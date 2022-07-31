@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import Typewriter from 'typewriter-effect'
 
 
-function TypeWriter() {
+function TypeWriter({text}) {
   return (
     <Writer>
         <Typewriter
   onInit={(typewriter) => {
-    typewriter.typeString('Welcome On Board')
+    typewriter.typeString(text)
       .pauseFor(2500)
       .start();
   }}

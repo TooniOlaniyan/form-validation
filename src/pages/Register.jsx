@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import SignUp from '../asset/SignUp.svg'
 import { FaSignInAlt , FaGoogle} from 'react-icons/fa'
-import { BiShowAlt} from 'react-icons/bi'
+import { BiShowAlt , BiHide} from 'react-icons/bi'
 import {useNavigate} from 'react-router-dom'
 import {Link} from 'react-router-dom'
 import { useState } from 'react'
@@ -17,7 +17,7 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    navigate('/')
+    navigate('/welcome')
   }
 
  
@@ -39,17 +39,17 @@ function Register() {
                </Input>
                <Input>
                <Label htmlFor="number">Phone  Number</Label>
-                <Field type="tel"  pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"  id='number' />
+                <Field type="tel"  id='number' />
                </Input>
                 <Input>
                 <Label htmlFor="password">Password*</Label>
                 <Field type={hide? 'password': 'text'}   id='password'  />
-                <BiShowAlt size={25} onClick={()=> setHide(!hide)} className='passwordReveal'/>
+                {hide ? <BiShowAlt size={25} onClick={()=>setHide(!hide)} className='passwordReveal'/> : <BiHide size={25} onClick={()=>setHide(!hide)} className='passwordReveal'/>}
                 </Input>
                <Input>
                <Label htmlFor="password"> Confirm Password*</Label>
                 <Field type={hideTwo? 'password': 'text'}    id='password' /> 
-                <BiShowAlt size={25} onClick={()=> setHideTwo(!hideTwo)} className='passwordReveal'/>
+                {hideTwo ? <BiShowAlt size={25} onClick={()=>setHideTwo(!hideTwo)} className='passwordReveal'/> : <BiHide size={25} onClick={()=>setHideTwo(!hideTwo)} className='passwordReveal'/>}
                </Input>
                <Choose>
                 <button className="button"> <FaSignInAlt/> Register</button>
@@ -165,7 +165,7 @@ const Google = styled.div`
     justify-content: center;
     gap: 1rem;
     align-items: center;
-    padding: 0.8rem 1.5rem;
+    padding: 0.8rem 1.9rem;
     border-radius: 0.3rem;
     font-size: 20px;
     background-color: white;
