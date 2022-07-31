@@ -84,7 +84,7 @@ const Reset = styled.div`
   justify-content: flex-end;
   align-items: flex-end;
   width: 60%;
-  @media screen and (max-width:500px) {
+  @media screen and (max-width:420px) {
     width: max-content;
     
   }
@@ -105,7 +105,7 @@ const Form = styled.form`
   gap: 2rem;
   width: 50vw;
   height: 100vh;
-  @media screen and (max-width:500px) {
+  @media screen and (max-width:420px) {
     margin: 0 auto;
   }
   @media screen and (max-width:900px) {
@@ -124,9 +124,10 @@ const Form = styled.form`
   gap: 0.5rem;
   cursor: pointer;
   transition: all 1s;
-  @media screen and (max-width:500px) {
+  @media screen and (max-width:420px) {
     padding: 0.7rem 3rem;
-  width: 60vw;
+    width: 60vw;
+    margin: 0 auto;
   }
   @media screen and (max-width:900px) {
     padding: 0.6rem 3rem;
@@ -159,7 +160,7 @@ width: 30rem;
 height: 3rem;
 font-size: 20px;
 border-color: #2c3333e2;
-@media screen and (max-width:500px) {
+@media screen and (max-width:420px) {
   width: 20rem;
   margin: 0 auto;
 }
@@ -169,8 +170,10 @@ const Input = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  @media screen and (max-width:500px) {
+  justify-content: center;
+  @media screen and (max-width:420px) {
     width: 70vw;
+    
     
     
   }
@@ -188,7 +191,9 @@ const Input = styled.div`
 
 `
 const Google = styled.div`
-border: 3px solid red;
+  @media screen and (max-width:420px) {
+    margin: 0 auto;
+  }
   button{
     display: flex;
     justify-content: center;
@@ -201,13 +206,12 @@ border: 3px solid red;
     color: white;
     cursor: pointer;
     transition: all 1s;
-    @media screen and (max-width:500px) {
+    @media screen and (max-width:420px) {
       padding: 0.7rem 3.5rem;
-      width: 70vw;
+      /* width: 70vw; */
       font-size: 14px;
     }
     @media screen and (max-width:900px) {
-      
       padding: 1rem;
       
     }

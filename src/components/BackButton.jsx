@@ -7,7 +7,7 @@ function BackButton() {
   return (
     <Arrow>
         <Link to='/' className='link'>
-        <BsArrowLeftSquareFill  size={30}/>
+        <BsArrowLeftSquareFill className='leftArrow' size={30}/>
             Go Back
         
         </Link>
@@ -30,23 +30,26 @@ const Arrow = styled.div`
    color: white;
    text-decoration: none;
    border-radius: 0.8rem;
-   @media screen and (max-width:500px) {
+   @media screen and (max-width:420px) {
     right: 0;
     padding: 1rem;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   
    }
-   @media screen and (min-width:900px) {
-    right: 0;
+ 
+  }
+  @media screen and (min-width:896px) {
+    left: 0;
     top: 0.3rem;
-    width: 13rem;
+    width: 10rem;
     font-size: 16px;
-    
+    .leftArrow{
+      width: 40px;
+    }
     
   
    }
-  }
 
 `
 
