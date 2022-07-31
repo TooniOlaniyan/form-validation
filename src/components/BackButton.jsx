@@ -37,10 +37,9 @@ const Arrow = styled.div`
     border-bottom-right-radius: 0;
   
    }
-   @media screen and (max-width:900px) {
+   @media screen and (min-width:900px) {
     right: 0;
     top: 0.3rem;
-    /* margin-left: 35rem; */
     width: 13rem;
     font-size: 16px;
     

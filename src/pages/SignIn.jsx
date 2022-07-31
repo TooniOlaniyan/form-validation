@@ -42,7 +42,7 @@ function SignIn() {
         <Google>
               <button> <FaGoogle/> Sign In with Google</button>
            <div className="tryRegister">
-           New? <Link to='/register' className='forgotPassword'>Register</Link>
+           New? <Link to='/register' className='forgotPassword register'>Register</Link>
            </div>
             </Google>
       </Form>
@@ -115,6 +115,7 @@ const Form = styled.form`
   padding: 0.7rem 12rem;
   font-size: 20px;
   border-radius: 0.5rem;
+  border-color: #000;
   background-color: #fff;
   color: #000;
   display: flex;
@@ -142,6 +143,12 @@ const Form = styled.form`
   color: black;
   font-size: 18px;
   font-weight: 700;
+  @media screen and (max-width:900px) {
+    text-align: center;
+    margin-right: 3rem;
+    
+    
+  }
  }
 
 `
