@@ -30,7 +30,23 @@ const Arrow = styled.div`
    color: white;
    text-decoration: none;
    border-radius: 0.8rem;
-   
+   @media screen and (max-width:500px) {
+    right: 0;
+    padding: 1rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  
+   }
+   @media screen and (max-width:900px) {
+    right: 0;
+    top: 0.3rem;
+    margin-left: 35rem;
+    width: 13rem;
+    font-size: 16px;
+    
+    
+  
+   }
   }
 
 `
