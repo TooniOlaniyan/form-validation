@@ -56,9 +56,10 @@ const Main = styled.main`
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  @media screen and (max-width:820px) {
-    padding: 1rem 0;
+  @media screen and (max-width:420px) {
+    overflow: hidden;
   }
+
 `
 
 const Image = styled.div`
@@ -177,8 +178,8 @@ height: 3rem;
 font-size: 20px;
 border-color: #2c3333e2;
 @media screen and (max-width:400px) {
-  width: 20rem;
-  /* margin: 0 auto; */
+  width: 80vw;
+
 }
   
 `
@@ -188,11 +189,9 @@ const Input = styled.div`
   position: relative;
   justify-content: center;
   @media screen and (max-width:420px) {
-    width: 70vw;
-    
-    
-    
+    width: 70vw;  
   }
+ 
   .passwordReveal{
   position: absolute;
   top: 68px;
