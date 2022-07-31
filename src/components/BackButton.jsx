@@ -40,7 +40,7 @@ const Arrow = styled.div`
    @media screen and (max-width:900px) {
     right: 0;
     top: 0.3rem;
-    margin-left: 35rem;
+    /* margin-left: 35rem; */
     width: 13rem;
     font-size: 16px;
     
