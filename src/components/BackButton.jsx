@@ -37,6 +37,14 @@ const Arrow = styled.div`
     border-bottom-right-radius: 0;
   
    }
+   @media screen and (max-height:700px) {
+    display: none;
+  
+   }
+   @media screen and (max-height:750px) {
+    top: 0;
+  
+   }
  
   }
   @media screen and (min-width:850px) {

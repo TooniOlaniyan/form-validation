@@ -71,15 +71,25 @@ function Register() {
 
 const Section = styled.section`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 1rem;
+  @media screen and (max-width: 420px) {
+    justify-content: center;
+    
+  }
+  
   
 `
 const Image = styled.div`
   img{
-    width: 45rem;
-    height: 45rem;
+    width: 40rem;
+    height: 40rem;
+    @media screen and (max-width: 420px) {
+      display: none;
+
+  }
+    
   }
 
 `
@@ -88,7 +98,8 @@ const Form = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-color: #000000e8 ; */
+  
+ 
   width: 50vw;
   height: 100vh;
  .button{
@@ -102,6 +113,12 @@ const Form = styled.form`
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
+  @media screen and (max-width: 420px) {
+    width: 45vw;
+  }
+  @media screen and (max-width: 300px) {
+    font-size: 14px;
+  }
  }
 
 `
@@ -110,11 +127,16 @@ const Input = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  gap: 0.3rem;
+ 
   .passwordReveal{
   position: absolute;
-  top: 70px;
+  top: 55px;
   right: 15px;
   cursor: pointer;
+  @media screen and (max-width: 300px) {
+    top: 50px;
+  }
 }
   
 
@@ -127,6 +149,12 @@ border-radius: 1rem;
 padding: 0.7rem 2rem;
 font-size: 20px;
 border-color: #2c333361;
+@media screen and (max-width: 420px) {
+  width: 80vw;
+}
+@media screen and (max-width: 300px) {
+  font-size: 16px;
+}
 
 
 
@@ -135,7 +163,10 @@ border-color: #2c333361;
 const Label = styled.label`
   /* border: 1px solid green; */
   font-size: 20px;
-  padding: 1rem;
+  padding: 0.4rem;
+  @media screen and (max-width: 300px) {
+    font-size:15px;
+  }
 `
 const Choose = styled.div`
   display: flex;
@@ -143,6 +174,7 @@ const Choose = styled.div`
   align-items: center;
   gap: 1rem;
   margin: 1.5rem;
+ 
 
   .getSigned{
     display: flex;
@@ -150,6 +182,9 @@ const Choose = styled.div`
     justify-content: center;
     align-items: flex-start;
     font-size: 17px;
+    @media screen and (max-width: 300px) {
+    font-size:15px;
+  }
     
   }
   .link{
@@ -171,6 +206,13 @@ const Google = styled.div`
     background-color: white;
     cursor: pointer;
     transition: all 1s;
+    @media screen and (max-width: 420px) {
+      width: max-content;
+    }
+    @media screen and (max-width: 300px) {
+      font-size: 16px;
+      padding: 0.8rem 1.3rem;
+    }
   }
   button:hover{
     background-color: black;
