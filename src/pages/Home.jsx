@@ -55,6 +55,14 @@ const Register = styled.div`
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     font-size: 25px;
     background-color: #000;
+    @media screen and (max-width: 420px) {
+        padding: 1rem 3rem;
+        font-size: 20px;
+  }
+@media screen and (max-width: 500px) {
+    padding: 1rem 3rem;
+    font-size: 20px;
+  }
 `
 const SignIn = styled.div`
     display: flex;
@@ -67,6 +75,14 @@ const SignIn = styled.div`
     font-size: 25px;
     border: 1px solid black;
     box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
+    @media screen and (max-width: 420px) {
+        padding: 1rem 3rem;
+        font-size: 20px;
+  }
+@media screen and (max-width: 500px) {
+    padding: 1rem 3rem;
+    font-size: 20px;
+  }
 `
 
 export default Home

@@ -78,6 +78,10 @@ const Section = styled.section`
     justify-content: center;
     
   }
+  @media screen and (max-height: 750px) {
+    padding: 1rem 0;
+    
+  }
  
   
   
@@ -95,6 +99,10 @@ const Image = styled.div`
       height: 20rem
 
   }
+    @media screen and (max-width: 600px) {
+      display: none;
+
+  }
     
   }
 
@@ -106,6 +114,9 @@ const Form = styled.form`
   align-items: center;
   width: 50vw;
   height: 100vh;
+  @media screen and (max-width: 600px) {
+    width: 80vw;
+  }
   
  .button{
   padding: 0.5rem 1rem;
@@ -121,6 +132,7 @@ const Form = styled.form`
   @media screen and (max-width: 420px) {
     width: 45vw;
   }
+  
   @media screen and (max-width: 300px) {
     font-size: 14px;
   }
@@ -148,6 +160,9 @@ const Input = styled.div`
   @media screen and (max-width: 420px) {
     top: 45px;
   }
+  @media screen and (max-width: 450px) {
+    top: 45px;
+  }
 }
   
 
@@ -163,6 +178,7 @@ border-color: #2c333361;
 @media screen and (max-width: 420px) {
   width: 80vw;
 }
+
 @media screen and (max-width: 300px) {
   font-size: 16px;
 }

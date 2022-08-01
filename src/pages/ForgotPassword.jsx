@@ -63,6 +63,11 @@ font-size: 20px;
 border-color: #2c3333e2;
 @media screen and (max-width: 420px) {
     width: 90vw;
+    font-size: 18px;
+  }
+@media screen and (max-width: 500px) {
+    width: 90vw;
+    font-size: 18px;
   }
   
 `
@@ -81,6 +86,11 @@ const Google = styled.div`
     transition: all 1s;
     @media screen and (max-width: 420px) {
     padding: 0.7rem 4rem;
+    font-size: 18px;
+  }
+    @media screen and (max-width: 450px) {
+    padding: 0.7rem 2rem;
+    font-size: 18px;
   }
 
   }

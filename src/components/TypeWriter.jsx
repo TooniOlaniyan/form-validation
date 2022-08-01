@@ -24,7 +24,7 @@ const Writer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 40px;
+    font-size: 30px;
     @media screen and (max-width:420px) {
       font-size: 30px;
       width: 90vw;

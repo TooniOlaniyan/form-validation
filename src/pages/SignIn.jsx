@@ -59,6 +59,14 @@ const Main = styled.main`
   @media screen and (max-width:420px) {
     overflow: hidden;
   }
+  @media screen and (max-width: 420px) {
+    justify-content: center;
+    
+  }
+  @media screen and (max-height: 750px) {
+    padding: 1rem 0;
+    
+  }
 
 `
 
@@ -66,18 +74,24 @@ const Image = styled.div`
   img{
     width: 45rem;
     height: 45rem;
+    @media screen and (max-width: 850px) {
+      width: 20rem;
+      height: 20rem
+
+  }
+    @media screen and (max-width: 600px) {
+      display: none;
+
   }
   @media screen and (max-width:500px) {
-    img{
       display: none;
-    }
+    
     
   }
-  @media screen and (max-width:900px) {
-    img{
-     display: none;
-    }
+  @media screen and (max-width:920px) {
+    display: none;
     
+  }
   }
 `
 const Reset = styled.div`
@@ -107,11 +121,17 @@ const Reset = styled.div`
 
 `
 const Label = styled.label`
-  font-size: 20px;
+  font-size: 18px;
   padding: 1rem;
   @media screen and (max-width:900px) {
     font-size: 18px;
     padding: 0.3rem;
+  }
+  @media screen and (max-width: 300px) {
+    font-size:15px;
+  }
+  @media screen and (max-width: 850px) {
+    font-size: 15px;
   }
 `
 const Form = styled.form`
@@ -175,12 +195,23 @@ border-radius: 1rem;
 padding: 0.7rem;
 width: 30rem;
 height: 3rem;
-font-size: 20px;
+font-size: 18px;
 border-color: #2c3333e2;
-@media screen and (max-width:400px) {
+@media screen and (max-width:420px) {
   width: 80vw;
 
 }
+@media screen and (max-width:450px) {
+  width: 80vw;
+
+}
+@media screen and (max-width: 300px) {
+  font-size: 16px;
+}
+@media screen and (max-width: 850px) {
+  font-size: 15px;
+}
+
   
 `
 const Input = styled.div`
@@ -205,6 +236,10 @@ const Input = styled.div`
     right: -20px;
 
   }
+  @media screen and (max-width:420px) {
+    right: 10px;
+
+  }
 }
   
 
@@ -220,7 +255,7 @@ const Google = styled.div`
     align-items: center;
     padding: 0.7rem 8rem;
     border-radius: 0.3rem;
-    font-size: 20px;
+    font-size: 18px;
     background-color: #000;
     color: white;
     cursor: pointer;
@@ -243,7 +278,7 @@ const Google = styled.div`
   }
   .tryRegister{
    margin-top: 1rem;
-   font-size: 20px;
+   font-size: 18px;
    color: #000000bf;
   }
 
