@@ -78,10 +78,7 @@ const Section = styled.section`
     justify-content: center;
     
   }
-  @media screen and (max-width: 850px) {
-    padding: 2rem 0;
-    justify-content: center;
-  }
+ 
   
   
 `
@@ -109,9 +106,7 @@ const Form = styled.form`
   align-items: center;
   width: 50vw;
   height: 100vh;
-  @media screen and (max-width: 850px) {
-    height: 70vh;
-  }
+  
  .button{
   padding: 0.5rem 1rem;
   font-size: 18px;
@@ -148,7 +143,10 @@ const Input = styled.div`
   right: 15px;
   cursor: pointer;
   @media screen and (max-width: 300px) {
-    top: 40px;
+    top: 50px;
+  }
+  @media screen and (max-width: 420px) {
+    top: 45px;
   }
 }
   
@@ -229,6 +227,7 @@ const Google = styled.div`
     transition: all 1s;
     @media screen and (max-width: 420px) {
       width: max-content;
+      font-size: 16px;
     }
     @media screen and (max-width: 300px) {
       font-size: 16px;
