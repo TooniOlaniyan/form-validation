@@ -79,7 +79,7 @@ const Section = styled.section`
     
   }
   @media screen and (max-width: 850px) {
-    padding: 1rem 0;
+    padding: 2rem 0;
     justify-content: center;
   }
   
@@ -94,8 +94,8 @@ const Image = styled.div`
 
   }
     @media screen and (max-width: 850px) {
-      width: 25rem;
-      height: 25rem
+      width: 20rem;
+      height: 20rem
 
   }
     
@@ -109,6 +109,9 @@ const Form = styled.form`
   align-items: center;
   width: 50vw;
   height: 100vh;
+  @media screen and (max-width: 850px) {
+    height: 70vh;
+  }
  .button{
   padding: 0.5rem 1rem;
   font-size: 18px;
@@ -145,7 +148,7 @@ const Input = styled.div`
   right: 15px;
   cursor: pointer;
   @media screen and (max-width: 300px) {
-    top: 50px;
+    top: 40px;
   }
 }
   
