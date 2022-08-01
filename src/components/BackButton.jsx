@@ -37,11 +37,11 @@ const Arrow = styled.div`
     border-bottom-right-radius: 0;
   
    }
-   @media screen and (max-height:700px) {
+   @media screen and (max-height:600px) {
     display: none;
   
    }
-   @media screen and (max-height:750px) {
+   @media screen and (max-height:650px) {
     top: 0;
   
    }
