@@ -89,6 +89,11 @@ const Image = styled.div`
       display: none;
 
   }
+    @media screen and (max-width: 850px) {
+      width: 30rem;
+      height: 30rem
+
+  }
     
   }
 
