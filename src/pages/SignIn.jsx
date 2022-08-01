@@ -7,11 +7,67 @@ import {Link} from 'react-router-dom'
 import { useState } from 'react'
 import GetIn from '../asset/GetIn.svg'
 import BackButton from '../components/BackButton'
+import{getAuth , signInWithEmailAndPassword , GoogleAuthProvider , signInWithPopup} from 'firebase/auth'
+import {collection , addDoc, setDoc , doc , serverTimestamp, getDoc} from 'firebase/firestore'
+import {db} from '../firebase.config'
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function SignIn() {
+  const [formData , setFormData] = useState({
+    email: '',
+    password:''
+  })
+  const {email , password } = formData
+
   const navigate = useNavigate()
-  const handleSubmit = () => {
-    navigate('/welcome')
+
+  const handleClick = async () => {
+    try {
+      const auth = getAuth()
+      const provider = new GoogleAuthProvider()
+      const result = await signInWithPopup(auth , provider)
+      const user = result.user
+      const docRef = doc(db , 'users' , user.uid)
+      const docSnap = await getDoc(docRef)
+      if(!docSnap.exists()){
+        await setDoc(doc(db , 'users' , user.uid) , {
+          name:user.displayName,
+          email:user.email,
+          timeStamp:serverTimestamp()
+        })
+      }
+      navigate('/welcome')
+
+      
+    } catch (error) {
+      toast.error('could not sign you up with Google')
+      
+    }
+
+  }
+  const handleChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.id]: e.target.value
+    }))
+  }
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      const auth = getAuth()
+      const userCredentail =  await signInWithEmailAndPassword(auth , email , password)
+      const user = userCredentail.user
+      if(user){
+        navigate('/welcome')
+      }
+     
+      
+    } catch (error) {
+      toast.error('Check your credentials')
+    }
+    
 
   }
   const [hide , setHide] = useState(true)
@@ -24,12 +80,12 @@ function SignIn() {
       </Image>
       <Form  onSubmit={handleSubmit}>
         <Input>
-          <Label htmlFor="name">Name</Label>
-          <Field type="text" id='name' placeholder='Enter Your Name' />
+          <Label htmlFor="email">Name</Label>
+          <Field type="email" id='email' placeholder='Enter Your Email' onChange={handleChange} value={email} />
         </Input>
         <Input>
-          <Label htmlFor="name">Password</Label>
-          <Field type= {hide ? 'password' : 'text'} id='name' placeholder='Enter Your Password' />
+          <Label htmlFor="password">Password</Label>
+          <Field type= {hide ? 'password' : 'text'} id='password' placeholder='Enter Your Password' onChange={handleChange} value={password} />
           {hide ? <BiShowAlt size={25} onClick={()=>setHide(!hide)} className='passwordReveal'/> : <BiHide size={25} onClick={()=>setHide(!hide)} className='passwordReveal'/>}
           
         </Input>
@@ -40,7 +96,7 @@ function SignIn() {
         </Link>
         </Reset>
         <Google>
-              <button> <FaGoogle/> Sign In with Google</button>
+              <button onClick={handleClick}> <FaGoogle/> Sign In with Google</button>
            <div className="tryRegister">
            New? <Link to='/register' className='forgotPassword register'>Register</Link>
            </div>

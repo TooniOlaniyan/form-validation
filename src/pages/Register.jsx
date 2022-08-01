@@ -7,17 +7,91 @@ import {useNavigate} from 'react-router-dom'
 import {Link} from 'react-router-dom'
 import { useState } from 'react'
 import BackButton from '../components/BackButton'
+import{getAuth , createUserWithEmailAndPassword, updateProfile , GoogleAuthProvider , signInWithPopup} from 'firebase/auth'
+import {collection , addDoc, setDoc , doc , serverTimestamp, getDoc} from 'firebase/firestore'
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {db} from '../firebase.config'
+
 
 
 
 function Register() {
+  const [formData , setFormData] = useState({
+    name: '',
+    email: '',
+    password:'',
+    confirmPassword:''
+  })
+  const {name , email , password , confirmPassword} = formData
   const navigate = useNavigate()
   const [hide , setHide] = useState(true)
   const [hideTwo , setHideTwo] = useState(true)
 
-  const handleSubmit = (e) => {
+  const handleClick = async () => {
+    try {
+      const auth = getAuth()
+      const provider = new GoogleAuthProvider()
+      const result = await signInWithPopup(auth , provider)
+      const user = result.user
+      const docRef = doc(db , 'users' , user.uid)
+      const docSnap = await getDoc(docRef)
+      if(!docSnap.exists()){
+        await setDoc(doc(db , 'users' , user.uid) , {
+          name:user.displayName,
+          email:user.email,
+          timeStamp:serverTimestamp()
+        })
+      }
+      navigate('/welcome')
+
+      
+    } catch (error) {
+      toast.error('could not sign you up with Google')
+      
+    }
+
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    navigate('/welcome')
+    try {
+      const auth = getAuth()
+      const userCredential = await createUserWithEmailAndPassword(auth , email , password)
+      const user = userCredential.user
+      // updateProfile(auth.currentUser , {
+      //   displayName: name
+      // })
+      console.log(user);
+      const newData = {...formData}
+      console.log(newData);
+      await setDoc(doc(db , 'users' , user.uid) , newData )
+      navigate('/sign-in')
+  
+      
+    } catch (error) {
+      toast.error('opps')
+      
+    }
+    if(password !== confirmPassword){
+      toast.error('Password must match')
+
+    }
+   
+   
+  
+
+    
+  }
+  const handleChange = (e) => {
+    setFormData((prevState)=>({
+      ...prevState,
+      [e.target.id]: e.target.value
+
+
+    }))
+    
+
   }
 
  
@@ -31,24 +105,24 @@ function Register() {
             <Form onSubmit={handleSubmit}>
                <Input>
                <Label htmlFor="name">Name</Label>
-                <Field type="text"  id='name' />
+                <Field type="text" onChange={handleChange}  id='name' value={name} />
                </Input>
                <Input>
                <Label htmlFor="email">Email*</Label>
-                <Field type="email"   id='email' />
+                <Field type="email" onChange={handleChange}   id='email' value={email} />
                </Input>
                <Input>
                <Label htmlFor="number">Phone  Number</Label>
-                <Field type="tel"  id='number' />
+                <Field type="tel" onChange={handleChange}  id='number'  />
                </Input>
                 <Input>
                 <Label htmlFor="password">Password*</Label>
-                <Field type={hide? 'password': 'text'}   id='password'  />
+                <Field type={hide? 'password': 'text'}  onChange={handleChange}  id='password' value={password}  />
                 {hide ? <BiShowAlt size={25} onClick={()=>setHide(!hide)} className='passwordReveal'/> : <BiHide size={25} onClick={()=>setHide(!hide)} className='passwordReveal'/>}
                 </Input>
                <Input>
                <Label htmlFor="password"> Confirm Password*</Label>
-                <Field type={hideTwo? 'password': 'text'}    id='password' /> 
+                <Field type={hideTwo? 'password': 'text'} onChange={handleChange}    id='confirmPassword' value={confirmPassword} /> 
                 {hideTwo ? <BiShowAlt size={25} onClick={()=>setHideTwo(!hideTwo)} className='passwordReveal'/> : <BiHide size={25} onClick={()=>setHideTwo(!hideTwo)} className='passwordReveal'/>}
                </Input>
                <Choose>
@@ -59,10 +133,10 @@ function Register() {
                 </div>
 
                </Choose>
-            <Google>
-              <button> <FaGoogle/> Sign Up with Google</button>
-            </Google>
             </Form>
+            <Google>
+              <button onClick={handleClick}> <FaGoogle/> Sign Up with Google</button>
+            </Google>
           </div>
       </Section>
     

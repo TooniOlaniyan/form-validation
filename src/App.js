@@ -5,6 +5,7 @@ import Register from './pages/Register'
 import Welcome from './pages/Welcome'
 import './index.css'
 import ForgotPassword from './pages/ForgotPassword'
+import {ToastContainer} from 'react-toastify'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path='/forgot-password' element={<ForgotPassword/>}></Route>
         </Routes>
       </Router>
+      <ToastContainer theme='dark'/>
 
   
     </div>
