@@ -204,6 +204,8 @@ const Google = styled.div`
     border-radius: 0.3rem;
     font-size: 20px;
     background-color: white;
+    border-color: black;
+    color: black;
     cursor: pointer;
     transition: all 1s;
     @media screen and (max-width: 420px) {
