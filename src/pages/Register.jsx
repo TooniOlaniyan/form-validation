@@ -78,6 +78,10 @@ const Section = styled.section`
     justify-content: center;
     
   }
+  @media screen and (max-width: 850px) {
+    padding: 1rem 0;
+    justify-content: center;
+  }
   
   
 `
@@ -90,8 +94,8 @@ const Image = styled.div`
 
   }
     @media screen and (max-width: 850px) {
-      width: 30rem;
-      height: 30rem
+      width: 25rem;
+      height: 25rem
 
   }
     
@@ -103,8 +107,6 @@ const Form = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
- 
   width: 50vw;
   height: 100vh;
  .button{
@@ -133,6 +135,9 @@ const Input = styled.div`
   flex-direction: column;
   position: relative;
   gap: 0.3rem;
+  @media screen and (max-width: 850px) {
+    gap: 0.1rem;
+  }
  
   .passwordReveal{
   position: absolute;
@@ -160,6 +165,9 @@ border-color: #2c333361;
 @media screen and (max-width: 300px) {
   font-size: 16px;
 }
+@media screen and (max-width: 850px) {
+  font-size: 15px;
+}
 
 
 
@@ -171,6 +179,9 @@ const Label = styled.label`
   padding: 0.4rem;
   @media screen and (max-width: 300px) {
     font-size:15px;
+  }
+  @media screen and (max-width: 850px) {
+    font-size: 15px;
   }
 `
 const Choose = styled.div`
