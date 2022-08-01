@@ -240,6 +240,10 @@ const Input = styled.div`
     right: 10px;
 
   }
+  @media screen and (max-width:380px) {
+    right: 0px;
+
+  }
 }
   
 
