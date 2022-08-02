@@ -63,10 +63,12 @@ function Register() {
     try {
       if(password !== confirmPassword){
         toast.error('Password must match')
+        setIsLoading(false)
   
       }
       if(password.length < 6){
         toast.error('Atleast 6 character password')
+        setIsLoading(false)
       }
       const auth = getAuth()
       const userCredential = await createUserWithEmailAndPassword(auth , email , password)
