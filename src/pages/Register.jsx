@@ -193,7 +193,7 @@ const Form = styled.form`
   
  .button{
   padding: 0.5rem 1rem;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 0.5rem;
   background-color: #000;
   color: white;
@@ -224,7 +224,7 @@ const Input = styled.div`
  
   .passwordReveal{
   position: absolute;
-  top: 55px;
+  top: 50px;
   right: 15px;
   cursor: pointer;
   @media screen and (max-width: 300px) {
@@ -236,6 +236,9 @@ const Input = styled.div`
   @media screen and (max-width: 450px) {
     top: 45px;
   }
+  @media screen and (max-width: 850px) {
+    top: 42px;
+  }
 }
   
 
@@ -246,17 +249,24 @@ const Input = styled.div`
 const Field = styled.input`
 border-radius: 1rem;
 padding: 0.7rem 2rem;
-font-size: 20px;
+font-size: 16px;
+width: 25vw;
 border-color: #2c333361;
 @media screen and (max-width: 420px) {
   width: 80vw;
 }
+@media screen and (max-width: 500px) {
+  width: 80vw;
+}
+@media screen and (max-width: 600px) {
+  width: 75vw;
+}
 
 @media screen and (max-width: 300px) {
-  font-size: 16px;
+  font-size: 14px;
 }
 @media screen and (max-width: 850px) {
-  font-size: 15px;
+  font-size: 14px;
 }
 
 
@@ -265,13 +275,13 @@ border-color: #2c333361;
 `
 const Label = styled.label`
   /* border: 1px solid green; */
-  font-size: 20px;
+  font-size: 16px;
   padding: 0.4rem;
   @media screen and (max-width: 300px) {
-    font-size:15px;
+    font-size:14px;
   }
   @media screen and (max-width: 850px) {
-    font-size: 15px;
+    font-size: 14px;
   }
 `
 const Choose = styled.div`
@@ -287,9 +297,9 @@ const Choose = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    font-size: 17px;
+    font-size: 15px;
     @media screen and (max-width: 300px) {
-    font-size:15px;
+    font-size:14px;
   }
     
   }
@@ -301,7 +311,7 @@ const Choose = styled.div`
  
 `
 const Google = styled.div`
-  border: 1px solid balck;
+  /* border: 1px solid balck; */
   margin-top: -6rem;
   display: flex;
   justify-content: center;
@@ -313,7 +323,7 @@ const Google = styled.div`
     align-items: center;
     padding: 0.8rem 1.9rem;
     border-radius: 0.3rem;
-    font-size: 20px;
+    font-size: 16px;
     background-color: white;
     border-color: black;
     color: black;

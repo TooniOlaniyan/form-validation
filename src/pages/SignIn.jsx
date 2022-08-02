@@ -166,7 +166,7 @@ const Reset = styled.div`
   text-decoration: none;
   text-align: right;
   color: black;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 700;
   @media screen and (max-width:900px) {
     text-align: center;
@@ -174,7 +174,7 @@ const Reset = styled.div`
   }
   @media screen and (max-width:400px) {
     text-align: left;
-    font-size: 16px;
+    font-size: 14px;
   }
  }
   @media screen and (max-width:420px) {
@@ -184,17 +184,17 @@ const Reset = styled.div`
 
 `
 const Label = styled.label`
-  font-size: 18px;
+  font-size: 16px;
   padding: 1rem;
   @media screen and (max-width:900px) {
-    font-size: 18px;
+    font-size: 16px;
     padding: 0.3rem;
   }
   @media screen and (max-width: 300px) {
-    font-size:15px;
+    font-size:14px;
   }
   @media screen and (max-width: 850px) {
-    font-size: 15px;
+    font-size: 14px;
   }
 `
 const Form = styled.form`
@@ -213,9 +213,9 @@ const Form = styled.form`
   }
  button{
   padding: 0.7rem 12rem;
-  font-size: 20px;
+  font-size: 17px;
   border-radius: 0.5rem;
-  border-color: #000;
+  border-color: #2c3333ad;
   background-color: #fff;
   color: #000;
   display: flex;
@@ -242,7 +242,7 @@ const Form = styled.form`
   text-decoration: none;
   text-align: right;
   color: black;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   @media screen and (max-width:900px) {
     text-align: center;
@@ -258,8 +258,8 @@ border-radius: 1rem;
 padding: 0.7rem;
 width: 30rem;
 height: 3rem;
-font-size: 18px;
-border-color: #2c3333e2;
+font-size: 15px;
+border-color: #2c3333ad;
 @media screen and (max-width:420px) {
   width: 80vw;
 
@@ -269,10 +269,10 @@ border-color: #2c3333e2;
 
 }
 @media screen and (max-width: 300px) {
-  font-size: 16px;
+  font-size: 14px;
 }
 @media screen and (max-width: 850px) {
-  font-size: 15px;
+  font-size: 14px;
 }
 
   
@@ -322,7 +322,7 @@ const Google = styled.div`
     align-items: center;
     padding: 0.7rem 8rem;
     border-radius: 0.3rem;
-    font-size: 18px;
+    font-size: 16px;
     background-color: #000;
     color: white;
     cursor: pointer;
@@ -345,7 +345,7 @@ const Google = styled.div`
   }
   .tryRegister{
    margin-top: 1rem;
-   font-size: 18px;
+   font-size: 16px;
    color: #000000bf;
   }
 

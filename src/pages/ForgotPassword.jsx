@@ -14,6 +14,7 @@ import Loading from '../components/Loading'
 
 
 function ForgotPassword() {
+  const navigate = useNavigate()
   const [loading , setLoading] = useState(false)
   const [resetEmail , setResetEmail] = useState({
     email:''
@@ -26,32 +27,19 @@ function ForgotPassword() {
       
     }))
   }
-  const handleReset = async () => {
-    try {
-      setLoading(true)
-      const auth = getAuth()
-      const reset = await sendPasswordResetEmail(auth , email)
-      if(reset){
-        setLoading(false)
-        toast.success('Reset Link sent to Mail')
-      navigate('/sign-in')
-    }
 
-
-    } catch (error) {
-      toast('Please provide a correct email address')
-      
-    }
-
-  }
-    const navigate = useNavigate()
-    const handleSubmit = (e) => {
+    const handleSubmit =  (e) => {
         e.preventDefault()
+        const auth = getAuth();
+      sendPasswordResetEmail(auth, email)
+      .then(() => {
+        toast.success('email sent')
+      })
+      .catch((error) => {
+          toast.error(error)
+        });
     }
 
-   if(loading){
-    return <Loading/>
-   }
   return (
     <Main>
         <BackButton/>
@@ -63,7 +51,7 @@ function ForgotPassword() {
             <Form onSubmit={handleSubmit}>
                 <Field onChange={handleChange} type="email" id='email' value={email} placeholder='Enter your Email' />
                 <Google>
-              <button onClick={handleReset}> Send TO Get Link</button>
+              <button > Send TO Get Link</button>
             </Google>
             </Form>
         </div>

@@ -24,9 +24,9 @@ const Arrow = styled.div`
    top: 3rem;
    left: 10rem;
    gap: 1rem;
-   padding: 1rem 3rem;
+   padding: 0.8rem 1.5rem;
    background-color: #000;
-   font-size: 20px;
+   font-size: 18px;
    color: white;
    text-decoration: none;
    border-radius: 0.8rem;
