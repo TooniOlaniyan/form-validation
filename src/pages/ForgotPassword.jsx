@@ -29,11 +29,10 @@ function ForgotPassword() {
   const handleReset = async () => {
     try {
       setLoading(true)
-      
       const auth = getAuth()
       const reset = await sendPasswordResetEmail(auth , email)
-      setLoading(false)
       if(reset){
+        setLoading(false)
         toast.success('Reset Link sent to Mail')
       navigate('/sign-in')
     }
