@@ -12,11 +12,13 @@ import {collection , addDoc, setDoc , doc , serverTimestamp, getDoc} from 'fireb
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {db} from '../firebase.config'
+import Loading from '../components/Loading'
 
 
 
 
 function Register() {
+  const [isLoading , setIsLoading] = useState(false)
   const [formData , setFormData] = useState({
     name: '',
     email: '',
@@ -28,6 +30,7 @@ function Register() {
   const [hide , setHide] = useState(true)
   const [hideTwo , setHideTwo] = useState(true)
 
+  //Google AUTH
   const handleClick = async () => {
     try {
       const auth = getAuth()
@@ -53,48 +56,44 @@ function Register() {
 
   }
 
+// Registration form submit
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setIsLoading(true)
     try {
+      if(password !== confirmPassword){
+        toast.error('Password must match')
+  
+      }
+      if(password.length < 6){
+        toast.error('Atleast 6 character password')
+      }
       const auth = getAuth()
       const userCredential = await createUserWithEmailAndPassword(auth , email , password)
       const user = userCredential.user
-      // updateProfile(auth.currentUser , {
-      //   displayName: name
-      // })
-      console.log(user);
       const newData = {...formData}
-      console.log(newData);
       await setDoc(doc(db , 'users' , user.uid) , newData )
       navigate('/sign-in')
-  
-      
+
     } catch (error) {
       toast.error('opps')
       
-    }
-    if(password !== confirmPassword){
-      toast.error('Password must match')
-
-    }
-   
-   
-  
-
-    
+    } 
   }
+
+  //Input chnage
   const handleChange = (e) => {
     setFormData((prevState)=>({
       ...prevState,
       [e.target.id]: e.target.value
-
-
     }))
     
 
   }
 
- 
+ if(isLoading){
+  return <Loading/>
+ }
   return (
       <Section>
         <BackButton/>
@@ -302,6 +301,11 @@ const Choose = styled.div`
  
 `
 const Google = styled.div`
+  border: 1px solid balck;
+  margin-top: -6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   button{
     display: flex;
     justify-content: center;

@@ -12,9 +12,11 @@ import {collection , addDoc, setDoc , doc , serverTimestamp, getDoc} from 'fireb
 import {db} from '../firebase.config'
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Loading from '../components/Loading'
 
 
 function SignIn() {
+  const [loading , setLoading] = useState(false)
   const [formData , setFormData] = useState({
     email: '',
     password:''
@@ -31,14 +33,11 @@ function SignIn() {
       const user = result.user
       const docRef = doc(db , 'users' , user.uid)
       const docSnap = await getDoc(docRef)
-      if(!docSnap.exists()){
-        await setDoc(doc(db , 'users' , user.uid) , {
-          name:user.displayName,
-          email:user.email,
-          timeStamp:serverTimestamp()
-        })
+      if(docSnap){
+        navigate('/welcome')
+      
       }
-      navigate('/welcome')
+      
 
       
     } catch (error) {
@@ -56,21 +55,29 @@ function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
+      setLoading(true)
       const auth = getAuth()
       const userCredentail =  await signInWithEmailAndPassword(auth , email , password)
       const user = userCredentail.user
       if(user){
+        setLoading(false)
         navigate('/welcome')
       }
      
       
     } catch (error) {
       toast.error('Check your credentials')
+      setLoading(false)
     }
     
 
   }
   const [hide , setHide] = useState(true)
+
+  if(loading){
+    return <Loading/>
+   }
+
   return (
     
     <Main>

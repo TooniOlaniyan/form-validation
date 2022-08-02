@@ -1,15 +1,58 @@
-import React from 'react'
+import React, { useState  , CSSProperties} from 'react'
 import TypeWriter from '../components/TypeWriter'
 import styled from 'styled-components'
 import {useNavigate} from 'react-router-dom'
 import BackButton from '../components/BackButton'
+import {db} from '../firebase.config'
+import {getAuth , sendPasswordResetEmail} from 'firebase/auth'
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+import Loading from '../components/Loading'
+
+
+
+
 
 function ForgotPassword() {
+  const [loading , setLoading] = useState(false)
+  const [resetEmail , setResetEmail] = useState({
+    email:''
+  })
+  const {email} = resetEmail
+  const handleChange = (e) => {
+    setResetEmail((prevState)=>({
+      ...prevState,
+      [e.target.id]: e.target.value
+      
+    }))
+  }
+  const handleReset = async () => {
+    try {
+      setLoading(true)
+      
+      const auth = getAuth()
+      const reset = await sendPasswordResetEmail(auth , email)
+      setLoading(false)
+      if(reset){
+        toast.success('Reset Link sent to Mail')
+      navigate('/sign-in')
+    }
+
+
+    } catch (error) {
+      toast('Please provide a correct email address')
+      
+    }
+
+  }
     const navigate = useNavigate()
     const handleSubmit = (e) => {
         e.preventDefault()
-        navigate('/sign-in')
     }
+
+   if(loading){
+    return <Loading/>
+   }
   return (
     <Main>
         <BackButton/>
@@ -19,9 +62,9 @@ function ForgotPassword() {
         </div>
         <div className="restPassword">
             <Form onSubmit={handleSubmit}>
-                <Field type="email" placeholder='Enter your Email' />
+                <Field onChange={handleChange} type="email" id='email' value={email} placeholder='Enter your Email' />
                 <Google>
-              <button> Send TO Get Link</button>
+              <button onClick={handleReset}> Send TO Get Link</button>
             </Google>
             </Form>
         </div>
