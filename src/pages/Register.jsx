@@ -75,7 +75,7 @@ function Register() {
       const user = userCredential.user
       const newData = {...formData}
       await setDoc(doc(db , 'users' , user.uid) , newData )
-      navigate('/sign-in')
+      navigate('/welcome')
 
     } catch (error) {
       toast.error('opps')
