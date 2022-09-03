@@ -35,6 +35,7 @@ function SignIn() {
       const docSnap = await getDoc(docRef)
       if(docSnap){
         navigate('/welcome')
+        
       
       }
       
@@ -59,6 +60,7 @@ function SignIn() {
       const auth = getAuth()
       const userCredentail =  await signInWithEmailAndPassword(auth , email , password)
       const user = userCredentail.user
+      const userEmail = user.email
       if(user){
         setLoading(false)
         navigate('/welcome')
