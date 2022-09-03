@@ -23,7 +23,7 @@ export const UserContextProvider = ({children}) => {
     const initialState = {
         name: '',
         email:'',
-        password:''
+        password:'',
     }
     const [state , dispatch] = userReducer(userReducer , initialState)
 
