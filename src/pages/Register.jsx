@@ -74,6 +74,9 @@ function Register() {
       const userCredential = await createUserWithEmailAndPassword(auth , email , password)
       const user = userCredential.user
       const newData = {...formData}
+      updateProfile(auth.currentUser , {
+        displayName:name
+      })
       await setDoc(doc(db , 'users' , user.uid) , newData )
       navigate('/welcome')
 
